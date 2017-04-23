@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-12">
+  {% for catalogitem in catalog %}
+    <a href="{{url_for('item_page', catalog_id=catalogitem.id)}}">
+      <h3>{{catalogitem.name}}</h3>
+    </a>
+  {% endfor %}
+</div>
+{% endblock %}

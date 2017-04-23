@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="col-md-12">
+  <div class="form-mini-container">
+            <div class="col-md-12">
+                <h1>Create a new Catalog Item </h1>
+                <form class="form-mini" action="#" method="post">
+                    <div class="form-row">
+                        <h1 for="Name"> Catalog Name:</h1>
+                    </div>
+                    <div class="form-row">
+                        <input type="text" name="name" class="form-control">
+                    </div>
+                    <div class="form-row">
+                        <button class="btn btn-block"type="submit">Create</button>
+                    </div>
+                    <div class="form-row">
+                        <button class="btn btn-block" href="{{url_for('main_page')}}">Cancel</button>
+                </form>
+            </div>
+  </div>
+</div>
+{% endblock %}

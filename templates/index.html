@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="col-md-12 text-center">
+    <div class="col-md-12">
+      <div class="picture col-md-5">
+        <img src="{{url_for('static', filename='folder-23397.svg')}}" class="img-responsive">
+      </div>
+      <div class="col-md-7">
+        <br /> <br /><br /> <br /><br /> <br /><br /> <br />
+        <div class="flash">
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+              {% for message in messages %}
+                <li><strong> {{ message }} </strong></li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          {% endwith %}
+        </div>
+        <h2>Catalog Items</h2>
+          <a href="{{url_for('newCatalogItem')}}">New Catalog Item</a>
+      </div>
+        <div class="col-md-12">
+          {% for catalogitem in catalog %}
+            <a href="{{url_for('item_page', catalog_id=catalogitem.id)}}">
+              <h3>{{catalogitem.name}}</h3>
+            </a>
+          {% endfor %}
+        </div>
+        <br/>
+      </div>
+    </div>
+{% endblock%}

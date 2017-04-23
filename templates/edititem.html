@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="col-md-12">
+    <h1 class="text-center">Edit {{ item.name }}</h1>
+  </div>
+  <div class="form-mini-container">
+    <form class="form-mini" action="#" method="post">
+          <div class="form-row">
+            <h1 for="Name">Name:</h1>
+          </div>
+          <div class="form-row">
+            <input class="form-control" type="text" name="name" value="{{item.name}}">
+          </div>
+          <div class="form-row">
+            <h1 for="Description">Description:</h1>
+          </div>
+          <div class="form-row">
+            <textarea name="description" value="{{item.description}}" rows="8" cols="30" placeholder="{{item.description}}" class="form-control"></textarea>
+          </div>
+          <div class="form-row">
+            <button type="submit" id="submit" class="btn">Edit</button>
+              <button href="{{url_for('main_page')}}" class="btn">Cancel</button>
+          </div>
+        </form>
+    </div>
+{% endblock %}

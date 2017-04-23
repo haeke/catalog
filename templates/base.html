@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Default page</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+  </head>
+  <body class="container">
+    <nav class="navbar sticky-top navbar-light nav-brand">
+      <div class="col-md-3">
+        <a class="nav-brand" href="#">Catalog Site</a>
+      </div>
+      <div class="col-md-3">
+        <a href="{{url_for('main_page')}}">Catalog Groups</a>
+      </div>
+      <div class="col-md-3">
+        <a href="{{ url_for('main_page')}}">Catalog Items</a>
+      </div>
+      <div class="col-md-3">
+        {% if 'username' not in session %}
+          <a href="/login">Login</a>
+        {% else %}
+          <a href="{{url_for('disconnect')}}">Logout</a>
+        {% endif %}
+      </div>
+    </nav>
+    <div class="header">
+      {% block content %}
+
+      {% endblock content %}
+    </div>
+
+  </body>
+</html>

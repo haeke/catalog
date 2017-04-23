@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-3">
+        <img src="{{url_for('static', filename='folder-303891.svg')}}" class="img-responsive">
+      </div>
+      <div class="col-md-9 text-center">
+        <h1>Category {{catalog.name}}</h1>
+        <a href="{{url_for('newitem_page', catalog_id=catalog.id)}}">Create New Catalog Item</a>
+        <a href="{{url_for('editCatalog', catalog_id = catalog.id)}}"> Edit Catalog Name</a>
+        <a href="{{url_for('deleteCatalog', catalog_id= catalog.id)}}"> Delete Catalog Item</a>
+      </div>
+    </div>
+    <div class="col-md-12 text-center">
+      {% if items != [] %}
+          {% for i in items %}
+          <div class="col-md-12">
+              <h3 class="catalogitem">{{i.name}}
+              <span><a href="{{url_for('edititem_page', catalog_id=catalog.id, item_id=i.id)}}">Edit</a><a href="{{url_for('deleteitem_page', catalog_id=catalog.id, item_id=i.id)}}"> Delete</a></span></h3>
+          </div>
+            <p class="catalogdescription">{{i.description}}</p>
+          {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
